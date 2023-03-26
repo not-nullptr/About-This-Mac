@@ -1,6 +1,8 @@
 # About This Mac
 A clone of Snow Leopard's About This Mac dialogue written in Electron.
 
+![An image of About This Mac](https://raw.github.com/madeline-xoxo/About-This-Mac/main/resources/screenshot.png)
+
 ## DISCLAIMER!!
 This tool has only been tested on Arch. It is intended for use with my Aqua-ish dotfiles, but it works standalone.
 
