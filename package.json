@@ -1,0 +1,50 @@
+{
+  "name": "about-this-mac",
+  "version": "1.0.0",
+  "main": "dist-electron/main/index.js",
+  "description": "A tool made to replicate the Snow Leopard-era About This Mac dialogue.",
+  "author": {
+    "name": "madzzz",
+    "email": "robotspriv@gmail.com",
+    "url": "https://nota-robot.com"
+  },
+  "homepage": "https://github.com/madeline-xoxo/about-this-mac",
+  "license": "GNU GPLv3",
+  "private": true,
+  "debug": {
+    "env": {
+      "VITE_DEV_SERVER_URL": "http://127.0.0.1:7777/"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build && electron-builder -l pacman",
+    "install": "sudo pacman -R about-this-mac && cd release/1.0.0 && sudo pacman -U about-this-mac-1.0.0.pacman",
+    "preview": "vite preview",
+    "pree2e": "vite build --mode=test",
+    "e2e": "playwright test"
+  },
+  "dependencies": {
+    "electron-updater": "^5.3.0",
+    "systeminformation": "^5.17.12"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.32.0",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "@vitejs/plugin-react": "^3.1.0",
+    "electron": "^23.2.0",
+    "electron-builder": "^23.6.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.60.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.2.1",
+    "vite-electron-plugin": "^0.8.2",
+    "vite-plugin-electron": "^0.11.1",
+    "vite-plugin-electron-renderer": "^0.13.10"
+  },
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
+  }
+}
