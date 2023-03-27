@@ -28,7 +28,7 @@ function App() {
     });
     si.graphics().then(gpus => {
       const gpu = gpus.controllers[0];
-      setGPU(`${gpu.name}`)
+      setGPU(`${Math.round(gpu.vram! / 1000)} GB ${gpu.name}`)
     });
     si.osInfo().then(osinfo => {
       setOsInfo(osinfo);
