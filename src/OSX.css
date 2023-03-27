@@ -106,6 +106,7 @@ button:focus {
 .value {
     text-align: left;
     margin-left: 100px;
+    user-select:text;
 }
 
 #footer-container {
