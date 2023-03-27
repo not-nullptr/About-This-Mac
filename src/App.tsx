@@ -37,9 +37,8 @@ function App() {
     }
     execPromise(command).then((value) => {
       setStd(value.stdout);
-      console.log(value.stdout)
     })
-  }, [])
+  }, [osinfo?.platform])
   return (
     <div className="container">
       <div id="titlebar">

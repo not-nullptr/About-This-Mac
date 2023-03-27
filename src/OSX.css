@@ -46,6 +46,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 22.5px 7.5px 7.5px 7.5px;
+    height: 100%;
 }
 
 #apple-logo {
@@ -111,7 +112,7 @@ button:focus {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
+    flex-grow: 1;
 }
 
 #footer {
@@ -119,7 +120,6 @@ button:focus {
     opacity: 0.5;
     font-size: 8pt;
     line-height: 12.5px;
-
 }
 
 #buttons {
