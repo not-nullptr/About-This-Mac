@@ -152,3 +152,7 @@ button:focus {
     color: rgba(0, 0, 0, 1);
 }
 
+::selection {
+    background-color: #b5d3ff;
+    color: #000;
+}
