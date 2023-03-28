@@ -18,7 +18,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && electron-builder -l pacman",
+    "build-arch": "tsc && vite build && electron-builder -l pacman",
+    "build-macos": "tsc && vite build && electron-builder -m dmg",
+    "build-windows": "tsc && vite build && electron-builder -w portable",
     "install": "sudo pacman -R about-this-mac && cd release/1.0.0 && sudo pacman -U about-this-mac-1.0.0.pacman",
     "preview": "vite preview",
     "pree2e": "vite build --mode=test",

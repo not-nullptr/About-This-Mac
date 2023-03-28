@@ -27,7 +27,7 @@ function App() {
     let command = "echo Unknown";
     switch (osinfo?.platform) {
       case "linux":
-        command = `awk '$2 == "/"' /proc/self/mounts`
+        command = `awk '$2 == "/"' /proc/self/mounts | cut -d ' ' -f1`
         break;
       case "darwin":
         command = `diskutil info / | sed -n 's/^ *Volume Name: *//p'`
