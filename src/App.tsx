@@ -30,6 +30,7 @@ function App() {
             if (gpu.vendor.includes('Intel')) return `Intel ${(gpu.model.match(/\[(.*?)\]/)!)[1]}` || "Unsupported"
             return gpu.name;
           }
+          return gpu.name;
         })()}`)
       });
     });
