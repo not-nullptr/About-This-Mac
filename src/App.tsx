@@ -17,12 +17,21 @@ function App() {
       setSpeed(`${cpu.speedMax} GHz`)
       setModel(`${cpu.manufacturer} ${cpu.manufacturer === "AMD" ? cpu.brand.match(/^(.*)\s\d+-Core Processor$/)![1] : cpu.brand}`)
     });
-    si.graphics().then(gpus => {
-      const gpu = gpus.controllers[0];
-      setGPU(`${Math.round(gpu.vram! / 1000)} GB ${gpu.model.includes("Intel") ? gpu.model : gpu.name}`)
-    });
     si.osInfo().then(osinfo => {
       setOsInfo(osinfo);
+      si.graphics().then(gpus => {
+        const gpu = gpus.controllers[0];
+        const useGB = gpu.vram!.toString().length > 3
+        setGPU(`${useGB ? Math.round(gpu.vram! / 1000) : gpu.vram!} ${useGB ? 'GB' : 'MB'} ${(() => {
+          if (osinfo?.platform === "darwin") {
+            return gpu.model;
+          };
+          if (osinfo?.platform === "linux") {
+            if (gpu.vendor.includes('Intel')) return `Intel ${(gpu.model.match(/\[(.*?)\]/)!)[1]}` || "Unsupported"
+            return gpu.name;
+          }
+        })()}`)
+      });
     });
     let command = "echo Unknown";
     switch (osinfo?.platform) {
@@ -95,7 +104,7 @@ function App() {
               </tr>
               <tr>
                 <td className="key">Boot Disk</td>
-                <td className="value">{std}</td>
+                <td className="value">{osinfo?.platform === "linux" ? std?.split(' ')[0] : std}</td>
               </tr>
             </tbody>
           </table>
