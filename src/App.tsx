@@ -14,7 +14,8 @@ function App() {
   const execPromise = util.promisify(exec)
   useEffect(() => {
     si.cpu().then(cpu => {
-      setSpeed(`${cpu.speedMax} GHz`)
+      console.log(JSON.stringify(cpu))
+      setSpeed(`${cpu.speed} GHz`)
       setModel(`${cpu.manufacturer} ${cpu.manufacturer === "AMD" ? cpu.brand.match(/^(.*)\s\d+-Core Processor$/)![1] : cpu.brand}`)
     });
     si.osInfo().then(osinfo => {
